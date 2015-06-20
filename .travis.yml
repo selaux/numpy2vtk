@@ -1,0 +1,5 @@
+language: python
+python: 2.7
+install:
+  - "apt-get install python-vtk6 python-numpy python-coverage"
+
