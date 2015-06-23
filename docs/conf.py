@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 #
 # Numpy2Vtk documentation build configuration file, created by
@@ -15,11 +15,16 @@
 
 import sys
 import os
-import shlex
+from mock import Mock
 
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
+class MockModule(Mock):
+    @classmethod
+    def __getattr__(cls, name):
+        return Mock()
+
+MOCK_MODULES = ['vtk', 'numpy']
+
+sys.modules.update((mod_name, MockModule()) for mod_name in MOCK_MODULES)
 sys.path.insert(0, os.path.abspath('..'))
 
 # -- General configuration ------------------------------------------------
