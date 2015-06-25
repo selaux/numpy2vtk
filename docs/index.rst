@@ -13,6 +13,7 @@ Contents:
    :maxdepth: 2
 
    api
+   license
 
 .. _numpy: http://www.numpy.org/
 .. _VTK: http://www.vtk.org/
